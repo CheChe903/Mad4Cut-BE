@@ -22,11 +22,9 @@ public class MemberService {
     public Member saveOrUpdateUser(String profile) {
         // 프로필 JSON 파싱
         String userId = extractUserIdFromProfile(profile);
-        String email = extractEmailFromProfile(profile);
         String name = extractNameFromProfile(profile);
 
         log.debug("id: {}", userId);
-        log.debug("email: {}", email);
         log.debug("name: {}", name);
 
         Member member = memberRepository.findByUserId(userId).orElse(null);
@@ -35,7 +33,6 @@ public class MemberService {
             log.debug("Member not found. Creating new member.");
             member = Member.builder()
                     .userId(userId)
-                    .email(email)
                     .nickname(name)
                     .build();
             member = memberRepository.save(member);

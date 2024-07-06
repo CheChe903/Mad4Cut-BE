@@ -19,16 +19,12 @@ public class Member {
     private String userId;
 
 
-    @Column(name = "email")
-    private String email;
-
     @Column(name = "nickname")
     private String nickname;
 
     @Builder
     public Member(String userId, String email, String nickname) {
         this.userId = userId;
-        this.email = email;
         this.nickname = nickname;
     }
 }
