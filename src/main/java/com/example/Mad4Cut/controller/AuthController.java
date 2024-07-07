@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/v1/member")
 
 @Slf4j
 public class AuthController {
@@ -31,7 +31,7 @@ public class AuthController {
     private MemberService memberService;
 
 
-    @PostMapping("/naver")
+    @PostMapping("/login")
     public ApiResponse<ApiResponse.SuccessBody<AccessNaverInfo>> authenticateWithNaver(@RequestBody NaverTokenRequest request) {
         String naverProfile = naverService.getNaverProfile(request.getToken());
         // 네이버 프로필 정보 기반으로 사용자 저장 또는 업데이트
