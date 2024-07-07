@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/images")
+@RequestMapping("/api/v1/member")
 public class ImageController {
 
     private final ImageService imageService;
@@ -30,7 +30,7 @@ public class ImageController {
         this.jwtTokenProvider = jwtTokenProvider;
     }
 
-    @PostMapping("/upload")
+    @PostMapping("/gallery/save")
     public ApiResponse<ApiResponse.SuccessBody<ImageInfo>> uploadImage(@RequestPart("file") MultipartFile file, HttpServletRequest request) throws IOException {
         Long memberId = findMemberByToken(request);
         String fileUrl = imageService.saveImage(file, memberId);
@@ -43,7 +43,7 @@ public class ImageController {
         return ApiResponseGenerator.success(res, HttpStatus.CREATED);
     }
 
-    @GetMapping("/getimage")
+    @GetMapping("/gallery")
     public ApiResponse<ApiResponse.SuccessBody<ImageListInfo>> getImage(HttpServletRequest request){
         Long memberId = findMemberByToken(request);
         List<Image> images = imageService.getImagesByMemberId(memberId);
