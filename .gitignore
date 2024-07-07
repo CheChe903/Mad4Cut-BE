@@ -38,3 +38,5 @@ out/
 
 *.yml
 .DS_Store
+
+src/main/resources/static/*

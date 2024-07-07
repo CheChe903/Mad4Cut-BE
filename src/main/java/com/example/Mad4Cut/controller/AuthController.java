@@ -30,8 +30,6 @@ public class AuthController {
     @Autowired
     private MemberService memberService;
 
-    @Autowired
-    private JwtTokenProvider jwtTokenProvider;
 
     @PostMapping("/naver")
     public ApiResponse<ApiResponse.SuccessBody<AccessNaverInfo>> authenticateWithNaver(@RequestBody NaverTokenRequest request) {
@@ -48,6 +46,11 @@ public class AuthController {
                 .build();
 
         return ApiResponseGenerator.success(res, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/generate-token")
+    public String generateToken(@RequestParam Long id) {
+        return tokenService.createToken(id);
     }
 }
 
