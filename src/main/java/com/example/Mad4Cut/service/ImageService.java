@@ -24,7 +24,7 @@ public class ImageService {
     private final ImageRepository imageRepository;
     private final MemberRepository memberRepository;
 
-    @Value("${file.upload-dir}")
+    @Value("${file.upload-image-dir}")
     private String uploadDir;
 
     @Autowired
