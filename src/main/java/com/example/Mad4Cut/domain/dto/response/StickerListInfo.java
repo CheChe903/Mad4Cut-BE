@@ -1,8 +1,10 @@
 package com.example.Mad4Cut.domain.dto.response;
 
 
-import com.example.Mad4Cut.domain.Member;
+import com.example.Mad4Cut.domain.Sticker;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @ToString
@@ -10,9 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 @Builder
-public class ImageInfo {
+public class StickerListInfo {
 
-    private Long id;
-
-    private String url;
+    private List<Sticker> stickers;
 }

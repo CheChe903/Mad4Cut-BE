@@ -1,7 +1,5 @@
 package com.example.Mad4Cut.domain.dto.response;
 
-
-import com.example.Mad4Cut.domain.Member;
 import lombok.*;
 
 @Getter
@@ -10,9 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 @Builder
-public class ImageInfo {
+public class StickerInfo {
 
     private Long id;
-
     private String url;
 }

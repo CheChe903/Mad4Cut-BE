@@ -40,7 +40,7 @@ public class FrameController {
         FrameListInfo res = FrameListInfo.builder()
                 .frames(frames)
                 .build();
-        return ApiResponseGenerator.success(res, HttpStatus.CREATED);
+        return ApiResponseGenerator.success(res, HttpStatus.OK);
     }
 
 

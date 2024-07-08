@@ -1,7 +1,6 @@
 package com.example.Mad4Cut.controller;
 
 import com.example.Mad4Cut.domain.Image;
-import com.example.Mad4Cut.domain.dto.request.ImageSaveRequest;
 import com.example.Mad4Cut.domain.dto.response.ImageInfo;
 import com.example.Mad4Cut.domain.dto.response.ImageListInfo;
 import com.example.Mad4Cut.security.JwtTokenProvider;
@@ -51,7 +50,7 @@ public class ImageController {
         ImageListInfo res = ImageListInfo.builder()
                 .images(images)
                 .build();
-        return ApiResponseGenerator.success(res, HttpStatus.CREATED);
+        return ApiResponseGenerator.success(res, HttpStatus.OK);
     }
 
     private Long findMemberByToken(HttpServletRequest request) {
