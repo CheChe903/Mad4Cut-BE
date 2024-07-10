@@ -45,8 +45,8 @@ public class StickerService {
 
     public String saveSticker(MultipartFile file, Long memberId) throws IOException {
         // 파일 저장 경로 설정
-        String staticDir = new File("src/main/resources/static").getAbsolutePath();
-        File uploadDirFile = new File(staticDir, uploadDir);
+        String staticDir = new File("src/main/resources/static/stickers").getAbsolutePath();
+        File uploadDirFile = new File(staticDir);
         if (!uploadDirFile.exists()) {
             uploadDirFile.mkdirs();
         }
