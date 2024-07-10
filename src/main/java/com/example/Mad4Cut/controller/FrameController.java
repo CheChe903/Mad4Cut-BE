@@ -10,6 +10,7 @@ import com.example.Mad4Cut.service.ImageService;
 import com.example.Mad4Cut.support.ApiResponse;
 import com.example.Mad4Cut.support.ApiResponseGenerator;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api/v1")
+@Slf4j
 public class FrameController {
 
     private FrameService frameService;
@@ -36,6 +38,11 @@ public class FrameController {
     public ApiResponse<ApiResponse.SuccessBody<FrameListInfo>> getImage(HttpServletRequest request){
         Long memberId = findMemberByToken(request);
         List<Frame> frames = frameService.getAllFrames();
+
+        for(Frame f : frames)
+        {
+            log.debug("frame url:{}", f.getUrl());
+        }
 
         FrameListInfo res = FrameListInfo.builder()
                 .frames(frames)
